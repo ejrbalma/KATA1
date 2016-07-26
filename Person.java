@@ -18,8 +18,12 @@ public class Person {
         return birthday;
     }
 
-    public int getAge(){
+    public int getAge() {
         Date today = new Date();
-        return (int) ((today.getTime()-getBirthday().getTime())/(1000*60*60*24*365.25));
+        return (int) (milliSecondsToYear(today.getTime() - getBirthday().getTime()));
+    }
+
+    private int milliSecondsToYear(long milliseconds) {
+        return (int) (milliseconds / (1000 * 60 * 60 * 24 * 365.25));
     }
 }
